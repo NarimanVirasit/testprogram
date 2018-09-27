@@ -1,2 +1,3 @@
-# testprogram
-as Assessment Test for Web Developer
+# test program
+Author : Nariman Virasit
+an Assessment Test for Web Developer
