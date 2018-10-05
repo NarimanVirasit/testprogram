@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Weather Reporter</title>
+
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <style>
+body {
+    height: 100%;
+    background-color: #4EE2EC; /* For browsers that do not support gradients */
+    background-image: linear-gradient(white,#4EE2EC); /* Standard syntax (must be last) */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+</style>
+</head>
+<body onload="showData()">
+	<div class="container">
+		<br>
+		<div class="row">
+			<div class="col-md-12 col-sm-12" style="font: 28px bold;">
+				<div id="location"></div>
+			</div>
+		</div>
+		<br>
+		 <div class="row">
+		 		 <div class="col-md-12 col-sm-12">
+		 		 	<div class="card card-body text-center" style="border:none;background-color: transparent;">
+		 		 		<img src="" alt="" id="img1" width="200" height="170" class="mx-auto d-block">
+		 		 		<br>
+                        
+                        <div class="center">
+                        	 <table border="0" style="width: 50%;margin: 0 auto !important;">
+                        	<tbody>
+                        		<tr>
+                        			<td style="text-align: center;width: 50%;font: 40px bold;">
+                        				<div id="temp1" ></div></td>
+                        			<td rowspan="2" style="text-align: left;">
+<div id="wname1" style="font: 48px bold;"></div>
+                        			</td></tr>
+
+                        			<tr><td style="text-align: center;font: 26px bold;"><div id="mintemp1"></div></td>
+                        			</tr>
+                        	</tbody>
+                        </table>
+                        
+                        </div>
+
+                    </div>
+                    </div>
+                    
+		 </div>
+<br>
+<br>
+		 <div class="row">
+                <div class="col-md-3 col-sm-3">
+                    <div class="card card-body text-center" style="border:none;background-color: transparent;">
+                        <h4 class="card-title" id="day1" style="text-align: center;"></h4>
+                        <div class="center">
+                        	 <table border="0" style="width: 100%;margin: 0 auto !important;">
+                        	<tbody>
+                        		<tr>
+                        			<td rowspan="2"><img src="" alt="" id="img2" width="100" height="80" class="mx-auto d-block"></td>
+                        			<td>&nbsp;</td>
+                        			<td style="text-align: center;font: 24px bold;"><div id="maxtemp2"></div>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>&nbsp;</td>
+                        			<td style="text-align: center;font: 24px bold;">
+                        				<div id="mintemp2"></div>
+                        			</td>
+                        		</tr>
+                        		
+                        	</tbody>
+                        </table>
+                        
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                    <div class="card card-body text-center" style="border:none;background-color: transparent;">
+                        <h4 class="card-title" id="day2" style="text-align: center;"></h4>
+                        <div class="center">
+                        	 <table border="0" style="width: 100%;margin: 0 auto !important;">
+                        	<tbody>
+                        		<tr>
+                        			<td rowspan="2"><img src="" alt="" id="img3" width="100" height="80" class="mx-auto d-block"></td>
+                        			<td>&nbsp;</td>
+                        			<td style="text-align: center;font: 24px bold;"><div id="maxtemp3"></div>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>&nbsp;</td>
+                        			<td style="text-align: center;font: 24px bold;">
+                        				<div id="mintemp3"></div>
+                        			</td>
+                        		</tr>
+                        		
+                        	</tbody>
+                        </table>
+                        
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                    <div class="card card-body text-center" style="border:none;background-color: transparent;">
+                        <h4 class="card-title" id="day3" style="text-align: center;"></h4>
+                        <div class="center">
+                        	 <table border="0" style="width: 100%;margin: 0 auto !important;">
+                        	<tbody>
+                        		<tr>
+                        			<td rowspan="2"><img src="" alt="" id="img4" width="100" height="80" class="mx-auto d-block"></td>
+                        			<td>&nbsp;</td>
+                        			<td style="text-align: center;font: 24px bold;"><div id="maxtemp4"></div>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>&nbsp;</td>
+                        			<td style="text-align: center;font: 24px bold;">
+                        				<div id="mintemp4"></div>
+                        			</td>
+                        		</tr>
+                        		
+                        	</tbody>
+                        </table>
+                        
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                   <div class="card card-body text-center" style="border:none;background-color: transparent;">
+                        <h4 class="card-title" id="day4" style="text-align: center;"></h4>
+                        <div class="center">
+                        	 <table border="0" style="width: 100%;margin: 0 auto !important;">
+                        	<tbody>
+                        		<tr>
+                        			<td rowspan="2"><img src="" alt="" id="img5" width="100" height="80" class="mx-auto d-block"></td>
+                        			<td>&nbsp;</td>
+                        			<td style="text-align: center;font: 24px bold;"><div id="maxtemp5"></div>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>&nbsp;</td>
+                        			<td style="text-align: center;font: 24px bold;">
+                        				<div id="mintemp5"></div>
+                        			</td>
+                        		</tr>
+                        		
+                        	</tbody>
+                        </table>
+                        
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <div class="card card-body text-center" style="border:none;background-color: transparent;">
+                        <h4 class="card-title" id="day5" style="text-align: center;"></h4>
+                        <div class="center">
+                        	 <table border="0" style="width: 100%;margin: 0 auto !important;">
+                        	<tbody>
+                        		<tr>
+                        			<td rowspan="2"><img src="" alt="" id="img6" width="100" height="80" class="mx-auto d-block"></td>
+                        			<td>&nbsp;</td>
+                        			<td style="text-align: center;font: 24px bold;"><div id="maxtemp6"></div>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>&nbsp;</td>
+                        			<td style="text-align: center;font: 24px bold;">
+                        				<div id="mintemp6"></div>
+                        			</td>
+                        		</tr>
+                        		
+                        	</tbody>
+                        </table>
+                        
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+	</div>
+
+	<script>
+		var today = new Date();
+		function getData(){
+			var result,state_name,date;
+
+			var nowDate = today.getFullYear() + "/" +today.getMonth() + "/"+ today.getDate()+ "/";
+
+			/*var settings = {
+				"async": false,
+				"crossDomain": true,
+				"url": "http://www.metaweather.com/api/location/1225448/",
+				"method": "GET",
+				"headers": {
+					"content-type": "application/json"
+				}
+			}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+
+  result = response;
+});*/
+
+ var response = {
+    "data": [
+        {
+            "id": 5469639588970496,
+            "weather_state_name": "Thunder",
+            "weather_state_abbr": "t",
+            "wind_direction_compass": "E",
+            "created": "2018-10-05T12:36:31.832943Z",
+            "applicable_date": "2018-10-05",
+            "min_temp": 24.82,
+            "max_temp": 30.7375,
+            "the_temp": 32.065,
+            "wind_speed": 4.31550486936292,
+            "wind_direction": 90.00279743511209,
+            "air_pressure": 1016.6600000000001,
+            "humidity": 78,
+            "visibility": 10.159729678676529,
+            "predictability": 80
+        },
+        {
+            "id": 5739807795838976,
+            "weather_state_name": "Thunder",
+            "weather_state_abbr": "t",
+            "wind_direction_compass": "ESE",
+            "created": "2018-10-05T12:36:35.032146Z",
+            "applicable_date": "2018-10-06",
+            "min_temp": 25.0625,
+            "max_temp": 29.085,
+            "the_temp": 30.02,
+            "wind_speed": 3.979944342837827,
+            "wind_direction": 108.25489151697018,
+            "air_pressure": 1017.815,
+            "humidity": 79,
+            "visibility": 6.757411715581007,
+            "predictability": 80
+        },
+        {
+            "id": 6229683175686144,
+            "weather_state_name": "Heavy Rain",
+            "weather_state_abbr": "hr",
+            "wind_direction_compass": "SE",
+            "created": "2018-10-05T12:36:37.917483Z",
+            "applicable_date": "2018-10-07",
+            "min_temp": 24.215,
+            "max_temp": 30.725,
+            "the_temp": 31.259999999999998,
+            "wind_speed": 3.2832660812157,
+            "wind_direction": 144.2669944577176,
+            "air_pressure": 1017.6,
+            "humidity": 77,
+            "visibility": 10.619233675336037,
+            "predictability": 77
+        },
+        {
+            "id": 5514858615275520,
+            "weather_state_name": "Heavy Rain",
+            "weather_state_abbr": "hr",
+            "wind_direction_compass": "SE",
+            "created": "2018-10-05T12:36:40.957145Z",
+            "applicable_date": "2018-10-08",
+            "min_temp": 24.4925,
+            "max_temp": 31.2775,
+            "the_temp": 32.175,
+            "wind_speed": 2.876634179875527,
+            "wind_direction": 126.46438905874453,
+            "air_pressure": 1016.5899999999999,
+            "humidity": 73,
+            "visibility": 8.42548268114213,
+            "predictability": 77
+        },
+        {
+            "id": 5447914973298688,
+            "weather_state_name": "Light Rain",
+            "weather_state_abbr": "lr",
+            "wind_direction_compass": "SE",
+            "created": "2018-10-05T12:36:43.834955Z",
+            "applicable_date": "2018-10-09",
+            "min_temp": 24.305,
+            "max_temp": 31.67,
+            "the_temp": 32.144999999999996,
+            "wind_speed": 3.2291314433229936,
+            "wind_direction": 126.6185425460745,
+            "air_pressure": 1013.745,
+            "humidity": 70,
+            "visibility": 9.250974310029427,
+            "predictability": 75
+        },
+        {
+            "id": 5436655850749952,
+            "weather_state_name": "Heavy Rain",
+            "weather_state_abbr": "hr",
+            "wind_direction_compass": "ENE",
+            "created": "2018-10-05T12:36:46.917386Z",
+            "applicable_date": "2018-10-10",
+            "min_temp": 24.3425,
+            "max_temp": 31.9925,
+            "the_temp": 30.91,
+            "wind_speed": 2.183922161244996,
+            "wind_direction": 60.53596311796922,
+            "air_pressure": 1017.08,
+            "humidity": 69,
+            "visibility": 9.997862483098704,
+            "predictability": 77
+        }
+    ],
+    "time": "2018-10-05T21:00:48.753354+07:00",
+    "sun_rise": "2018-10-05T06:07:43.761855+07:00",
+    "sun_set": "2018-10-05T18:05:08.410613+07:00",
+    "timezone_name": "LMT",
+    "parent": {
+        "title": "Thailand",
+        "location_type": "Country",
+        "woeid": 23424960,
+        "latt_long": "13.036590,101.492500"
+    },
+    "sources": [
+        {
+            "title": "BBC",
+            "slug": "bbc",
+            "url": "http://www.bbc.co.uk/weather/",
+            "crawl_rate": 180
+        },
+        {
+            "title": "Forecast.io",
+            "slug": "forecast-io",
+            "url": "http://forecast.io/",
+            "crawl_rate": 480
+        },
+        {
+            "title": "HAMweather",
+            "slug": "hamweather",
+            "url": "http://www.hamweather.com/",
+            "crawl_rate": 360
+        },
+        {
+            "title": "Met Office",
+            "slug": "met-office",
+            "url": "http://www.metoffice.gov.uk/",
+            "crawl_rate": 180
+        },
+        {
+            "title": "OpenWeatherMap",
+            "slug": "openweathermap",
+            "url": "http://openweathermap.org/",
+            "crawl_rate": 360
+        },
+        {
+            "title": "Weather Underground",
+            "slug": "wunderground",
+            "url": "https://www.wunderground.com/?apiref=fc30dc3cd224e19b",
+            "crawl_rate": 720
+        },
+        {
+            "title": "World Weather Online",
+            "slug": "world-weather-online",
+            "url": "http://www.worldweatheronline.com/",
+            "crawl_rate": 360
+        },
+        {
+            "title": "Yahoo",
+            "slug": "yahoo",
+            "url": "http://weather.yahoo.com/",
+            "crawl_rate": 180
+        }
+    ],
+    "title": "Bangkok",
+    "location_type": "City",
+    "woeid": 1225448,
+    "latt_long": "13.753330,100.504822",
+    "timezone": "Asia/Bangkok"
+}
+ result = response;
+ console.log(response);
+			return result;
+		}
+
+		function showData(){
+			var data = getData();
+			var nday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+
+			$("#location").text("Location : "+data.title+" ,"+data.parent.title);
+
+			var img1 = document.getElementById("img1");
+			img1.src = "https://www.metaweather.com/static/img/weather/png/"+data.data[0].weather_state_abbr+".png";
+			$("#wname1").text(data.data[0].weather_state_name);
+			
+			$("#temp1").text(data.data[0].the_temp.toFixed(0)+String.fromCharCode(176));
+			$("#mintemp1").text(data.data[0].min_temp.toFixed(0)+String.fromCharCode(176)+"/"+data.data[0].max_temp.toFixed(0)+String.fromCharCode(176));
+
+			var img2 = document.getElementById("img2");
+			img2.src = "https://www.metaweather.com/static/img/weather/png/"+data.data[1].weather_state_abbr+".png";
+
+			$("#mintemp2").text(data.data[1].min_temp.toFixed(0)+String.fromCharCode(176));
+			$("#maxtemp2").text(data.data[1].max_temp.toFixed(0)+String.fromCharCode(176));
+			var day1 = new Date(data.data[1].applicable_date);
+			$("#day1").text(nday[day1.getDay()]);
+
+
+
+			var img3 = document.getElementById("img3");
+			img3.src = "https://www.metaweather.com/static/img/weather/png/"+data.data[2].weather_state_abbr+".png";
+			$("#mintemp3").text(data.data[2].min_temp.toFixed(0)+String.fromCharCode(176));
+			$("#maxtemp3").text(data.data[2].max_temp.toFixed(0)+String.fromCharCode(176));
+			var day2 = new Date(data.data[2].applicable_date);
+			$("#day2").text(nday[day2.getDay()]);
+
+
+			var img4 = document.getElementById("img4");
+			img4.src = "https://www.metaweather.com/static/img/weather/png/"+data.data[3].weather_state_abbr+".png";
+			$("#mintemp4").text(data.data[3].min_temp.toFixed(0)+String.fromCharCode(176));
+			$("#maxtemp4").text(data.data[3].max_temp.toFixed(0)+String.fromCharCode(176));
+			var day3 = new Date(data.data[3].applicable_date);
+			$("#day3").text(nday[day3.getDay()]);
+
+
+
+			var img5 = document.getElementById("img5");
+			img5.src = "https://www.metaweather.com/static/img/weather/png/"+data.data[4].weather_state_abbr+".png";
+			$("#mintemp5").text(data.data[4].min_temp.toFixed(0)+String.fromCharCode(176));
+			$("#maxtemp5").text(data.data[4].max_temp.toFixed(0)+String.fromCharCode(176));
+			var day4 = new Date(data.data[4].applicable_date);
+		$("#day4").text(nday[day4.getDay()]);
+
+
+			var img6 = document.getElementById("img6");
+			img6.src = "https://www.metaweather.com/static/img/weather/png/"+data.data[5].weather_state_abbr+".png";
+			$("#mintemp6").text(data.data[5].min_temp.toFixed(0)+String.fromCharCode(176));
+			$("#maxtemp6").text(data.data[5].max_temp.toFixed(0)+String.fromCharCode(176));
+			var day5 = new Date(data.data[5].applicable_date);
+			$("#day5").text(nday[day5.getDay()]);
+
+
+			
+		}
+
+		   /*btnRead.click(function(event){
+            var btnShow = showData(); //แสดงข้อมูลใน console ของ browser เมื่อคลิกปุ่ม
+            console.log(btnShow);
+            //showData(JSON.parse(smartcardData));
+        });*/
+
+
+	</script>
+</body>
+</html>
